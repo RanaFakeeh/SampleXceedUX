@@ -164,13 +164,31 @@ XceedMeetingPlus.module('SearchModule', function (SearchModule, App, Backbone, M
     });
 
 
+	
 SearchModule.SearchLayout = Backbone.Marionette.Layout.extend({
 			template: "#search-layout",
-			regions: { timeline: '#TimeLine', hashtags: '#HashTags', groupfeeds: '#GroupFeeds', latestnews: '#LatestNews' },
+			regions: { timeline: '#MainTimeLine' },
 			initialize: function(){ },
-			onRender: function(){ }
+			events: { "keyup .TextBox p": "filterTimeLine"},
+			onRender: "filterTimeLine",
+			filterTimeLine: function(e){
+				e.preventDefault();
+				var t = new SearchModule.TimeLineCollection();
+				t.fetch();
+				this.timeline.show( new SearchModule.TimelineCollectionView({collection: t}));
+			}
 });
 
+SearchModule.TimelineView = Backbone.Marionette.CompositeView.extend({ template: '#timeline-view' });
+SearchModule.TimelineCollectionView = Backbone.Marionette.CollectionView.extend({ itemView: SearchModule.TimelineView });
+
+SearchModule.TimeLineModel = Backbone.Model.extend();
+SearchModule.TimeLineCollection = Backbone.Collection.extend({ 
+		model: SearchModule.TimeLineModel,
+		url: function() { return 'jsons/mplustimeline.json'},
+		parse: function(response){ return response; },
+		error:function(response,responseText){ alert('error..: ' + responseText); }
+});
 
 
 
@@ -186,9 +204,6 @@ SearchModule.addInitializer(function (method) {
 
 
 });
-
-
-
 
 
 
@@ -223,11 +238,25 @@ XceedMeetingPlus.module('SettingModule', function (SettingModule, App, Backbone,
 
 SettingModule.SettingLayout = Backbone.Marionette.Layout.extend({
 			template: "#setting-layout",
-			regions: { timeline: '#TimeLine', hashtags: '#HashTags', groupfeeds: '#GroupFeeds', latestnews: '#LatestNews' },
+			regions: { timeline: '#TimeLineFullPage' },
 			initialize: function(){ },
-			onRender: function(){ }
+			onRender: function(){
+				var t = new SettingModule.TimeLineCollection();
+				t.fetch();
+				this.timeline.show( new SettingModule.TimelineCollectionView({collection: t}));
+		    }
 });
 
+SettingModule.TimelineView = Backbone.Marionette.CompositeView.extend({ template: '#timeline-view' });
+SettingModule.TimelineCollectionView = Backbone.Marionette.CollectionView.extend({ itemView: SettingModule.TimelineView });
+
+SettingModule.TimeLineModel = Backbone.Model.extend();
+SettingModule.TimeLineCollection = Backbone.Collection.extend({ 
+		model: SettingModule.TimeLineModel,
+		url: function() { return 'jsons/mplustimeline.json'},
+		parse: function(response){ return response; },
+		error:function(response,responseText){ alert('error..: ' + responseText); }
+});
 
 
 SettingModule.addFinalizer(function(){ console.log("SettingModule.addFinalizer ..... destroyed"); });
