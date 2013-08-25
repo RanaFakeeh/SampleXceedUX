@@ -1,0 +1,27 @@
+[
+{
+	"href": "#timeline",
+	"id": "m1",
+	"text": "لوحة المعلومات"
+},
+{
+	"href": "#tasks",
+	"id": "m2",
+	"text": "المهام"
+},
+{
+	"href": "#workspace",
+	"id": "m3",
+	"text": "مساحات العمل"
+},
+{
+	"href": "#search",
+	"id": "m4",
+	"text": "البحث"
+},
+{
+	"href": "#settings",
+	"id": "m5",
+	"text": "الإعدادات"
+}
+]
