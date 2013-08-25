@@ -49,7 +49,6 @@ a{ text-decoration:none; }
 #MainMenu h3 a#m20{ background:url(../images/icon-link2.gif) no-repeat 197px center #797c78; }
 #MainMenu h3 a#m21{ background:url(../images/icon-comment.gif) no-repeat 197px center #797c78; }
 
-
 #MainMenu h3 a#m1:hover, #MainMenu h3 a#m1.selected{ background:url(../images/icon-calendar.gif) no-repeat 197px center  #51b1b1; }
 #MainMenu h3 a#m2:hover, #MainMenu h3 a#m2.selected{ background:url(../images/icon-check.gif) no-repeat 197px center  #51b1b1; }
 #MainMenu h3 a#m3:hover, #MainMenu h3 a#m3.selected{ background:url(../images/icon-box.gif) no-repeat 197px center  #51b1b1; }
@@ -114,5 +113,5 @@ a{ text-decoration:none; }
 .TopRow{ overflow:hidden; margin-bottom:30px; }
 .TopRow .IconText{ width:58px; height:58px; float:right; font-size:12px; color:#9d9d9d; text-align:left; background:url(../images/icon-text.gif) no-repeat center center; }
 .TopRow .TextBox{ width:88.7%; margin-right:14px;   height:59px; float:right; padding-right:15px; background:#e6ebeb; overflow:hidden; }
-.TopRow .TextBox p{ float:right; color:#797c78; text-indent:20px; line-height:56px; }
+.TopRow .TextBox p{ float:right; color:#797c78; text-indent:20px; line-height:56px; min-width:75px }
 .TopRow .TextBox span.button{ color:#499f9f; float:left; background:#797c78; color:#FFF; cursor:pointer; padding:10px; font-size:12px; margin-top:13px; margin-left:13px; }
