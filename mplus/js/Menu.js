@@ -1,28 +1,40 @@
 XceedMeetingPlus.module('Menu', function (Menu, App, Backbone, Marionette, $) {
 
-    Menu.home_menu = Backbone.Marionette.ItemView.extend({
-        template: '#home-menu',
-        tagName: 'div' //,
-        //events: { 'click a':'main_menu_clicked' }
-    });
-	
-	
-	/*Menu.main_menu = Backbone.Marionette.Layout.extend({
+	Menu.main_menu = Backbone.Marionette.Layout.extend({
 			template: '#main-menu',
 			regions: { UpperMenu: '#UpperMenu' },
-			//events: { "click .TaskHeader": "showTask" },
-			onRender: function(){  this.UpperMenu.show(new Menu.home_menu()) }
-	});*/
-	
+			events: { "click .sub": "showMenu2" },
+			showMenu2: function(e){
+				App.main_menu.show(new App.Menu.workspace_menu());
+			 },
+			onRender: function(){ 
 
-    
-	Menu.main_menu = Backbone.Marionette.ItemView.extend({ 
-		template: '#home-menu',
-		events: { "click .sub": "showMenu2" },
-		showMenu2: function(e){
-			App.main_menu.show(new App.Menu.workspace_menu());
-		 }
+				var u = new Menu.MainMenu();
+				u.fetch();
+				this.UpperMenu.show(new Menu.MenuItemCollectionView({collection: u})) 
+				
+			}
 	});
+	
+	Menu.MenuItemView = Backbone.Marionette.CompositeView.extend({ template: '#home-menu' });
+	Menu.MenuItemCollectionView = Backbone.Marionette.CollectionView.extend({ itemView: Menu.MenuItemView });
+
+	Menu.MainMenuItem = Backbone.Model.extend({});
+    Menu.MainMenu = Backbone.Collection.extend({ 
+	
+		model: Menu.MainMenuItem, 
+		url: function() { return 'jsons/mplusmainmenu.json'},
+		parse: function(response){ return response; },
+		error:function(response,responseText){ alert('error..: ' + responseText); }		
+		
+	});
+
+    App.vent.on('MainMenu:selectMainItem', function (id) {
+        $('#MainMenu a').removeClass("selected");
+		$("#"+id).addClass("selected");
+    });
+
+
 	
 	Menu.workspace_menu = Backbone.Marionette.ItemView.extend({ 
 		template: '#workspace-menu',
@@ -45,15 +57,5 @@ XceedMeetingPlus.module('Menu', function (Menu, App, Backbone, Marionette, $) {
 			App.main_menu.show(new App.Menu.workspace_menu());
 		 }
 	});
-	
-	Menu.EmptyMenuItem = Backbone.Marionette.ItemView.extend({ template: "#empty-view" });
-	
-	Menu.MainMenuItem = Backbone.Model.extend({});
-    Menu.MainMenu = Backbone.Collection.extend({ model: Menu.MainMenuItem });
-
-    App.vent.on('MainMenu:selectMainItem', function (id) {
-        $('#MainMenu a').removeClass("selected");
-		$("#"+id).addClass("selected");
-    });
 
 });
