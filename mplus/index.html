@@ -3,9 +3,6 @@
 <meta charset="utf-8">
 <title>Meeting Plus</title>
 <link href="style/styles_en.css" media="screen" rel="stylesheet" type="text/css" />
-
-
-  
 </head>
 
 <body>
@@ -67,14 +64,16 @@
 					<h3 ><a href="#workspace" ><span>الاجتماعات القادمة</span></a></h3>
 					<ul>
 						<% for (i=0; i<coming.length; i++) { %>
-							<li><a id="<%= coming[i].title %>" href="#workspace" class="sub"><%= coming[i].title %></a></li>
+							<li><a id="<%= coming[i].title %>" href="#workspace" class="sub"><%= coming[i].title %> 
+							<br> <span style="font-size: 11px"> <%= coming[i].time %></span><br></a></li>
 						<% } %>
 					</ul>
 					
 					<h3><a href="#workspace" ><span>الاجتماعات السابقة</span></a></h3>
 					<ul>
 						<% for (i=0; i<previous.length; i++) { %>
-							<li><a id="<%= previous[i].title %>" href="#workspace" class="sub"><%= previous[i].title %></a></li>
+							<li><a id="<%= previous[i].title %>" href="#workspace" class="sub"><%= previous[i].title %>
+							<br> <span style="font-size: 11px"> <%= previous[i].time %></a></li>
 						<% } %>
 					</ul>
 				</div>
