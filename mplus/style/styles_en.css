@@ -18,13 +18,27 @@ a{ text-decoration:none; }
 
 #Menu{ position:fixed; top:97px; bottom:10px; right:0px; width:230px; z-index:100; }
 #MainMenu{ position:absolute; top:0px; bottom:0px; left:0px; width:230px; background:#3e9a9a; }
-#MainMenu div div.SubMenu{ display:none; }
+
+
 #MainMenu div .active{ display:block !important; background:#FFF; width:230px; height:300px; }
 #MainMenu h3{ border-bottom:1px solid #384243; overflow:hidden; }
 #MainMenu h3 a span{ border-right:1px solid #384243; display:block; height:46px; text-indent:10px; line-height:45px; }
 #MainMenu h3 a{ display:block; width:187px; height:46px; padding-right:43px; color:#FFF;  }
 #MainMenu h3 a:hover,#MainMenu h3 a.selected{ background:#f2f2f2; }
+
+#MainMenu div div.SubMenu{ display:none}
+#MainMenu div div.SubMenu .items li{ list-style-type: none; background: url(../images/icon-bullet.gif) no-repeat center right; margin-right:10px; height:50px;border-bottom:1px solid #e1e1e1;}
+#MainMenu div div.SubMenu .items li a{ padding:20px; display:block; font-size:16px; color:#818181; height:50px; }
+#MainMenu .SubMenu h3 a, #MainMenu .SubMenu h3 a:hover {background:url(../images/icon-circle-plus.gif) no-repeat 197px center ; color:#818181; }
+#MainMenu .SubMenu .items h3 a, #MainMenu .SubMenu .items h3 a:hover {background:url(../images/icon-arrow-down.gif) no-repeat 197px center  ; color:#818181;}
+
+
+
+#MainMenu .SubMenu .items li span {font-size: 12px};
+#MainMenu .SubMenu h3 a  span{color:#3e9a9a }
+
 #MainMenu h3 a#m1{ background:url(../images/icon-calendar.gif) no-repeat 197px center ; }
+
 #MainMenu h3 a#m2{ background:url(../images/icon-check.gif) no-repeat 197px center ; }
 #MainMenu h3 a#m3{ background:url(../images/icon-box.gif) no-repeat 197px center ; }
 #MainMenu h3 a#m4{ background:url(../images/icon-search.gif) no-repeat 197px center ; }
@@ -97,8 +111,10 @@ a{ text-decoration:none; }
 .Row2 .GroupFeeds{ position:absolute; width:33%; right:33.5%; bottom:0px; top:0px; background:#FFF; overflow:auto; }
 .Row2 .LatestNews, .Row2 .UserList{ position:absolute; width:33%; right:67%; bottom:0px; top:0px; background:#FFF; overflow:auto; }
 
-.Row2 li { padding:0px 10px; border-bottom:1px solid #e1e1e1; }
-.Row2 li label{ padding:10px 5px; background:url(../images/icon-arrow-left.gif) no-repeat left center; display:block; font-size:12px; color:#818181; height:30px;  }
+.GroupFeeds li, .LatestNews li { list-style-type: none; background: url(../images/icon-bullet.gif) no-repeat center right; }
+
+.Row2 li{ margin-right:10px; border-bottom:1px solid #e1e1e1}
+.Row2 li label{ padding:10px 15px; background:url(../images/icon-arrow-left.gif) no-repeat left center; display:block; font-size:12px; color:#818181; height:30px;  }
 .Row2 li label strong{ font-size:14px;  color:#515151; } 
 
 .Row2 .UserList li{ font-size:12px; color:#818181; padding:10px 15px; height:30px; }
