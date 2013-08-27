@@ -74,4 +74,4 @@ WorkSpaceModule.addInitializer(function (method) {
 
 
 
-});
+}); 
