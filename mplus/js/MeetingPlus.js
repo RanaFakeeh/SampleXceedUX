@@ -37,21 +37,21 @@ XceedMeetingPlus.module('MeetingPlus', function (MeetingPlus, App, Backbone, Mar
                         break;	
 					case 'tasks':
                         App.vent.trigger('App:Modules:empty');
-							TaskModule = App.module("TaskModule");
-							TaskModule.start(method);
-							TaskModule.controller.route(method);
+							WorkSpaceModule = App.module("WorkSpaceModule");
+							WorkSpaceModule.start(method);
+							WorkSpaceModule.controller.route(method);
 						
-                        App.vent.trigger('App:Modules:add',"TaskModule");
+                        App.vent.trigger('App:Modules:add',"WorkSpaceModule");
 						
 						
                         break;	
 					case 'timeline':
                         App.vent.trigger('App:Modules:empty');
-							TimelineModule = App.module("TimelineModule");
-							TimelineModule.start(method);
-							TimelineModule.controller.route(method);
+							WorkSpaceModule = App.module("WorkSpaceModule");
+							WorkSpaceModule.start(method);
+							WorkSpaceModule.controller.route(method);
 						
-                        App.vent.trigger('App:Modules:add',"TimelineModule");
+                        App.vent.trigger('App:Modules:add',"WorkSpaceModule");
 						
 						break;	
 					case 'search':
